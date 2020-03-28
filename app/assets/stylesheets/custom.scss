@@ -1,0 +1,162 @@
+body {
+ 
+}
+
+.top-wrapper {
+  background-image:url("bg-top.png");
+  font-size:15px;
+  height:600px;
+  width:100%;
+  text-align:center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom:50px;
+}
+
+.top-title {
+  font-size:15px;
+  margin-bottom:75px;
+  
+}
+
+.top-title h1 {
+   letter-spacing:3px;
+   font-family: 'Amatic SC', cursive;
+   font-size:60px;
+   color:white;
+}
+
+.top-title p {
+  color:#FFFFFF;
+  opacity:0.9;
+}
+
+.register{
+  padding-top:30px;
+  margin-top:30px;
+}
+
+.register p {
+  font-size:15px;
+  color:white;
+}
+
+.btn{
+  padding:8px 24px;
+  color:white;
+  display:inline-block;
+  opacity:0.9;
+  border-radius:4px;
+ 
+}
+
+
+
+.btn:hover{
+  opacity:1;
+}
+
+.signup{
+  background-color:#239b76;
+}
+
+.facebook{
+  background-color:#3b5998;
+  margin-right:10px;
+}
+
+.twitter{
+  background-color:#55acee;
+}
+
+.btn-wrapper{
+  margin:20px 0;
+  
+}
+
+.btn-wrapper{
+  margin:20px 0;
+  
+}
+
+
+
+
+
+.team-logo a {
+  padding:8px 24px;
+  color:white;
+  display:inline-block;
+  opacity:0.9;
+  border-radius:4px;
+  background-color:blue;
+  
+}
+
+.community{
+   text-align: center;
+   padding-top:30px;
+}
+
+.logo {
+  padding-left:25px;
+  text-align: center;
+}
+
+.team-logo {
+  padding-bottom:100px;
+}
+
+.container {
+  padding-bottom:50px;
+}
+
+.picture {
+  width:350px;
+  height:300px;
+}
+
+.content {
+  padding-top:30px;
+}
+
+.comment {
+  font-size:20px;
+}
+
+.subcomment {
+  font-size:12px;
+  display:inline-block;
+  padding-top:20px;
+}
+
+
+/*user new html の記述*/
+
+.form-control {
+  height: 45px;
+}
+
+.users-new-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color:white;
+  
+  .users-new-container {
+    padding-top: 220px;
+
+  .form-group {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+/* ユーザー登録のアラート*/
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}

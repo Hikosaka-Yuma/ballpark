@@ -1,0 +1,119 @@
+<div class = "top-wrapper">
+ <div class = "top-title">
+  <h1>Ballpark.com</h1>
+  <p>野球観戦仲間を見つけよう！<br>Ballpark.comは、同じチームのファンを探して一緒に野球観戦出来るマッチングサービスです。<br>新しい野球ファンと繋がろう！<p>
+   <div class = "register">
+    <%# unless logged_in? %>
+     <a href = "/signup" class="btn signup">メールアドレスで登録</a>
+     <p>or sign up with</p>
+      <a href="#" class="btn facebook">Facebookで登録</a>
+      <a href="#" class="btn twitter">Twitterで登録</a>
+      <%= link_to 'ログインはこちら', login_path, class: 'btn btn-block btn-white' %>
+      <%# else %>
+       <!--<%= link_to "ログアウトはこちら", logout_path, class: "btn btn-block btn-white"%> -->
+     <%# end %>
+   </div>
+ </div>
+</div>
+
+
+<div class = "container">
+ <div class = "row">
+  <div class ="content col-md-offset-1 col-md-5">
+   <p class = "comment">1.プロ野球の観戦仲間を探すならBallpark.com!</p>
+   <img src = "https://s3-ap-northeast-1.amazonaws.com/cs-park/files/dawn.dsc-web.com/blog/5d158b072fd6c.jpg" class = "picture">
+   <p class = "subcomment">同じプロ野球チームのファンがいない！<br>球場に一緒に行く予定だった人が行けなくなりチケットが余った！<br>そんな時にはBallpark.comでファン仲間を探してみよう。</p>
+  </div>
+   <div class = "content col-md-offset-1 col-md-5">
+    <p class = "comment">2.Twitter or Facebookで簡単登録！</p>
+    <img src ="https://sophia-cs.co.jp/wp-content/uploads/2020/01/1001-04-img01.png" class = "picture">
+    <p class = "subcomment">どこのチームのファンかなど簡単なプロフィールを入力し3分程度で登録</p>
+   </div>
+  </div>
+   <div class = "row">
+    <div class = "content col-md-offset-1 col-md-5">
+     <p class = "comment">3.イベントや各球団のファンから観戦仲間を探そう</p>
+     <img src = "https://i.gzn.jp/img/2016/06/03/find-your-phone/00_m.png" class = "picture">
+     <p class = "subcomment">プロフィールやタグをみて一緒に応援できそうと思ったら<br>観戦仲間の申請を出してみましょう。</p>
+    </div>
+    <div class = "content col-md-offset-1 col-md-5">
+     <p class = "comment">4.承認されたら野球場へGO!</p>
+     <img src = "https://assets.media-platform.com/lifehacker/dist/images/2018/10/02/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0-w960.jpg" class = "picture">
+     <p class = "subcomment">プロ野球を通じて新しい仲間と繋がろう！</p>
+   </div>
+ </div>
+</div>
+ 
+<div class = "container">
+ <div class = "row">
+  <h2 class = "community">コミュニティ一覧</h2>
+   <div class = "team-logo">
+     <div class = "logo col-md-2">
+      <img src = "http://p.npb.jp/img/common/logo/2020/logo_g_l.gif">
+      <p>読売ジャイアンツ</p>
+      <a href = "#" class = "btn team">コミュニティを見る</a>
+     </div> 
+     <div class = "logo col-md-2">
+      <img src = "http://p.npb.jp/img/common/logo/2020/logo_db_l.gif">
+      <p>横浜DeNaベイスターズ</p>
+      <a href = "#" class = "btn team">コミュニティを見る</a>
+     </div>
+     <div class = "logo col-md-2">
+      <img src = "http://p.npb.jp/img/common/logo/2020/logo_t_l.gif">
+       <p>阪神タイガース</p>
+        <a href = "#" class = "btn team">コミュニティを見る</a>
+     </div>
+     <div class = "logo col-md-2">
+      <img src = "http://p.npb.jp/img/common/logo/2020/logo_c_l.gif">
+       <p>広島東洋カープ</p>
+       <a href = "#" class = "btn team">コミュニティを見る</a>
+     </div>
+     <div class = "logo col-md-2">
+      <img src = "http://p.npb.jp/img/common/logo/2020/logo_d_l.gif">
+       <p>中日ドラゴンズ</p>
+       <a href = "#" class = "btn team">コミュニティを見る</a>
+     </div>
+     <div class = "logo col-md-2">
+      <img src = "http://p.npb.jp/img/common/logo/2020/logo_s_l.gif">
+       <p>東京ヤクルトスワローズ</p>
+        <a href = "#" class = "btn team">コミュニティを見る</a>
+     </div>
+    </div>
+</div>
+<div class = "row">
+ <div class = "team-logo">
+  <div class = "logo col-md-2">
+   <img src = "http://p.npb.jp/img/common/logo/2020/logo_l_l.gif">
+    <p>埼玉西武ライオンズ</p>
+    <a href = "#" class = "btn team">コミュニティを見る</a>
+  </div>
+  <div class = "logo col-md-2">
+   <img src = "http://p.npb.jp/img/common/logo/2020/logo_h_l.gif">
+    <p>ソフトバンクホークス</p>
+     <a href = "#" class = "btn team">コミュニティを見る</a>
+  </div>
+  <div class = "logo col-md-2">
+   <img src = "http://p.npb.jp/img/common/logo/2020/logo_e_l.gif">
+    <p>楽天イーグルス</p>
+     <a href = "#" class = "btn team">コミュニティを見る</a>
+  </div>
+  <div class = "logo col-md-2">   
+   <img src = "http://p.npb.jp/img/common/logo/2020/logo_m_l.gif">
+    <p>千葉ロッテマリーンズ</p>
+     <a href = "#" class = "btn team">コミュニティを見る</a>
+  </div>
+  <div class = "logo col-md-2">
+   <img src = "http://p.npb.jp/img/common/logo/2020/logo_f_l.gif">
+    <p>日本ハムファイターズ</p>
+     <a href = "#" class = "btn team">コミュニティを見る</a>
+  </div>
+  <div class = "logo col-md-2">
+   <img src = "http://p.npb.jp/img/common/logo/2020/logo_b_l.gif">
+    <p>バッファローズ</p>
+     <a href = "#" class = "btn team">コミュニティを見る</a>
+  </div>
+ </div>
+</div>
+
+</div>
+
