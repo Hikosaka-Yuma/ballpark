@@ -4,4 +4,5 @@ class TopsController < ApplicationController
   
   def privacy
   end
+  
 end
