@@ -1,0 +1,50 @@
+
+<div class = "community-header">
+ <div class = "community-name">
+  <p><%= team(@team_id)[:name] %>ファンコミュニティ</p> 
+  <h1><%= team(@team_id)[:name] %></h1>
+ </div>
+</div>
+
+<div class = "community-container">
+ <div class = "left-content">
+  <div class = "team-info">
+   <p><%= image_tag (team(@team_id)[:image])%></p>
+   <%= link_to'このコミュニティに参加する' "#", class: 'join-member' %>
+   <!-- パス名作成　要 -->
+  </div>
+   <div class = "member">
+    <p>参加者一覧</p>
+    <!-- 参加者一覧数を記載 -->
+    <a href="#" class="btn member">All members</a>
+   </div>
+ </div>
+ 
+ <div class = "right-content">
+  <p class = "comment">
+   <%= team(@team_id)[:name] %>ファンのコミュニティです。<br>選手や監督について語り合いましょう。
+  </p>
+  <ul class = "rule">
+　　<p>■ルール</p>
+　　<li><%= team(@team_id)[:name] %>を応援するコミュニティですので前向きなコメントをお願いします</li>
+　　<li>選手や他球団、ユーザーを避難する内容は書かない</li>
+　　<li>チケットの売買に関するコメントは書かない</li>
+　　<li>著作権違反となる画像はアップしないようにお願いします</li>
+  </ul>
+  
+  <div class = "comment">
+   <div class = "latest-topics">
+    <p>最新の書き込み</p>
+   </div>
+   <div class = "all-topics">
+    <p>トピックス一覧</p>
+    <!-- topic テーブルで全てのトピック一覧を表示 -->
+   </div>
+  </div>
+</div>
+</div>
+ 
+
+
+
+
