@@ -1,0 +1,25 @@
+<%= render "contents" %>
+
+
+<div class = "conttainer">
+ <div class = "row">
+  <div class = "col-md-offset-6 md-2">
+   <div class = "post-create">
+    <%= form_with model: @post do |form| %>
+    <%= hidden_field :user_id, value: current_user.id %>
+    <div class="form-group">
+     <%= form.label :title, "タイトル" %>
+     <%= form.text_field :title, class: "form-control"%>
+    </div>
+    <div class="form-group">
+     <%= form.label :description, "内容" %>
+     <%= form.text_area :description, class: "form-control",size: 30*30%>
+    </div>
+    <div class="form-group">
+     <%= form.submit "トピック追加", class: "btn-block btn-white" %>
+    </div>
+    <% end %>
+   </div>
+  </div>
+ </div>
+</div>

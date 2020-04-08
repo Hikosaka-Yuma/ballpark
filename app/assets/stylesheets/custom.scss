@@ -67,8 +67,10 @@ body {
   background-color:#55acee;
 }
 
-
-
+.btn-white {
+  padding-top:20px;
+  color:black;
+}
 
 .btn-wrapper{
   margin:20px 0;
@@ -222,3 +224,9 @@ body {
   padding: 0px 10px;
 }
 
+
+/*トピック作成フォーム*/
+
+.post-create {
+  width:60%;
+}

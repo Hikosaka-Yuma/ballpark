@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  get 'posts/new'
   get 'sessions/new'
   get 'users/new'
   get 'tops/index'
   root 'tops#index'
   get "/privacy", to: "tops#privacy"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "signup" => "users#new"
   
   
@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :users
   resources :topics
+  resources :posts
 end

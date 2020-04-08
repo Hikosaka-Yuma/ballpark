@@ -1,4 +1,3 @@
-
 <div class = "community-header">
  <div class = "community-name">
   <p><%= team(@team_id)[:name] %>ファンコミュニティ</p> 
@@ -19,11 +18,7 @@
     <a href="#" class="btn member">All members</a>
    </div>
  </div>
- 
  <div class = "right-content">
-  <p class = "comment">
-   <%= team(@team_id)[:name] %>ファンのコミュニティです。<br>選手や監督について語り合いましょう。
-  </p>
   <ul class = "rule">
 　　<p>■ルール</p>
 　　<li><%= team(@team_id)[:name] %>を応援するコミュニティですので前向きなコメントをお願いします</li>
@@ -31,21 +26,5 @@
 　　<li>チケットの売買に関するコメントは書かない</li>
 　　<li>著作権違反となる画像はアップしないようにお願いします</li>
   </ul>
-  
-  <div class = "comment">
-   <div class = "latest-topics">
-    <p>最新の書き込み</p>
-   </div>
-   <div class = "all-topics">
-    <!-- topic テーブルで全てのトピック一覧を表示 -->
-   <%= link_to "トピックス一覧", posts_path(id: @team_id), class: "" %>
-   </div>
-   <%= link_to "トピックスを作成する", new_post_path(id: @team_id), class: "" %>
-  </div>
  </div>
 </div>
- 
-
-
-
-

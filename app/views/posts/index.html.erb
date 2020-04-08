@@ -1,0 +1,8 @@
+<%= render "contents" %>
+
+<div class = "post-index">
+  <% @posts. each do |post| %>
+   <%= post.title %>
+   <%= post.description %>
+  <% end %>
+</div>
