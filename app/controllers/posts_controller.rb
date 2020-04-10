@@ -1,19 +1,19 @@
 class PostsController < ApplicationController
   
   def index
-     @team_id = params[:id]
-     @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc)
+    @team = Team.find(params[:team_id])
   end
   
   def new
-    @team_id = params[:id]
-    @post = Post.new(id: @team_id)
+    @team = Team.find(params[:team_id])
+    @post = Post.new
   end
   
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-     redirect_to posts_path(id: @team_id), success: '投稿に成功しました'
+     redirect_to team_path(id: @post.team_id), success: '投稿に成功しました'
     else
      flash.now[:danger] = "投稿に失敗しました"
      render :new
@@ -21,8 +21,8 @@ class PostsController < ApplicationController
   end
   
   private
-  def post_params(id: @team_id)
-    params.require(:pots).permit(:title,:description, :user_id)
+  def post_params
+    params.require(:post).permit(:title, :description, :team_id)
   end
 
 end

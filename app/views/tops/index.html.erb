@@ -47,71 +47,14 @@
 <div class = "container">
  <div class = "row">
   <h2 class = "community">コミュニティ一覧</h2>
-  <div class = "team-logo">
+   <div class = "team-logo">
+   <% @teams.each do |team| %>
    <div class = "logo col-md-2">
-    <img src = "http://p.npb.jp/img/common/logo/2020/logo_g_l.gif">
-     <p>読売ジャイアンツ</p>
-     <a href = "/topics/1" class = "btn team">コミュニティを見る</a>
+    <%= team.name %>
+    <%= image_tag team.image.url %>
+    <%= link_to "コミュニティを見る", team_path(id: team.id),  class: "btn team" %>
     </div> 
-    <div class = "logo col-md-2">
-     <img src = "http://p.npb.jp/img/common/logo/2020/logo_db_l.gif">
-     <p>横浜DeNaベイスターズ</p>
-     <a href = "/topics/2" class = "btn team">コミュニティを見る</a>
-    </div>
-    <div class = "logo col-md-2">
-     <img src = "http://p.npb.jp/img/common/logo/2020/logo_t_l.gif">
-      <p>阪神タイガース</p>
-       <a href = "/topics/3" class = "btn team">コミュニティを見る</a>
-    </div>
-    <div class = "logo col-md-2">
-     <img src = "http://p.npb.jp/img/common/logo/2020/logo_c_l.gif">
-      <p>広島東洋カープ</p>
-      <a href = "/topics/4" class = "btn team">コミュニティを見る</a>
-    </div>
-    <div class = "logo col-md-2">
-     <img src = "http://p.npb.jp/img/common/logo/2020/logo_d_l.gif">
-      <p>中日ドラゴンズ</p>
-      <a href = "/topics/5" class = "btn team">コミュニティを見る</a>
-    </div>
-    <div class = "logo col-md-2">
-     <img src = "http://p.npb.jp/img/common/logo/2020/logo_s_l.gif">
-      <p>東京ヤクルトスワローズ</p>
-       <a href = "/topics/6" class = "btn team">コミュニティを見る</a>
-     </div>
-    </div>
- </div>
- <div class = "row">
-  <div class = "team-logo">
-   <div class = "logo col-md-2">
-    <img src = "http://p.npb.jp/img/common/logo/2020/logo_l_l.gif">
-    <p>埼玉西武ライオンズ</p>
-    <a href = "/topics/7" class = "btn team">コミュニティを見る</a>
-   </div>
-   <div class = "logo col-md-2">
-    <img src = "http://p.npb.jp/img/common/logo/2020/logo_h_l.gif">
-    <p>ソフトバンクホークス</p>
-    <a href = "/topics/8" class = "btn team">コミュニティを見る</a>
-   </div>
-   <div class = "logo col-md-2">
-   <img src = "http://p.npb.jp/img/common/logo/2020/logo_e_l.gif">
-    <p>楽天イーグルス</p>
-    <a href = "/topics/9" class = "btn team">コミュニティを見る</a>
-   </div>
-   <div class = "logo col-md-2">   
-    <img src = "http://p.npb.jp/img/common/logo/2020/logo_m_l.gif">
-    <p>千葉ロッテマリーンズ</p>
-    <a href = "/topics/10" class = "btn team">コミュニティを見る</a>
-   </div>
-   <div class = "logo col-md-2">
-    <img src = "http://p.npb.jp/img/common/logo/2020/logo_f_l.gif">
-    <p>日本ハムファイターズ</p>
-    <a href = "/topics/11" class = "btn team">コミュニティを見る</a>
-   </div>
-   <div class = "logo col-md-2">
-    <img src = "http://p.npb.jp/img/common/logo/2020/logo_b_l.gif">
-    <p>バッファローズ</p>
-    <a href = "/topics/12" class = "btn team">コミュニティを見る</a>
-   </div>
+    <% end %>
   </div>
  </div>
  <div class = "row">

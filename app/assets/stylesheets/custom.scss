@@ -228,5 +228,21 @@ body {
 /*トピック作成フォーム*/
 
 .post-create {
-  width:60%;
+  width:70%;
+}
+
+/*トピック一覧フォーム*/
+.right-contents{
+  width:500px;
+}
+
+.post-index{
+  border:2px solid black;
+  border-radius:2px;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+.post-date {
+  background-color:white;
 }

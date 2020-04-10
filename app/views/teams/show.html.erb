@@ -31,3 +31,18 @@
 　　<li>チケットの売買に関するコメントは書かない</li>
 　　<li>著作権違反となる画像はアップしないようにお願いします</li>
   </ul>
+  
+  <div class = "comment">
+   <div class = "latest-topics">
+    <p>最新の書き込み</p>
+   </div>
+   <div class = "all-topics">
+    <!-- topic テーブルで全てのトピック一覧を表示 -->
+   <%= link_to "トピックス一覧", posts_path(team_id: @team.id), class: "" %>
+   <!-- 4/9 team_id を飛ばしている -->
+   </div>
+   <%= link_to "トピックスを作成する", new_post_path(team_id: @team.id), class: "" %>
+  </div>
+ </div>
+</div>
+
