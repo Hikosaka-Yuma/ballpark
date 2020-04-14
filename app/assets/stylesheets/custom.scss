@@ -86,7 +86,7 @@ body {
 
 
 
-.team-logo a {
+.team {
   padding:8px 24px;
   color:white;
   display:inline-block;
@@ -101,13 +101,11 @@ body {
    padding-top:30px;
 }
 
-.logo {
-  padding-left:25px;
-  text-align: center;
-}
+
 
 .team-logo {
   padding-bottom:100px;
+  
 }
 
 .container {
@@ -226,23 +224,55 @@ body {
 
 
 /*トピック作成フォーム*/
-
 .post-create {
-  width:70%;
-}
-
-/*トピック一覧フォーム*/
-.right-contents{
   width:500px;
 }
 
-.post-index{
-  border:2px solid black;
+
+
+/*トピック一覧フォーム*/
+ 
+
+
+.post-list {
   border-radius:2px;
   margin-bottom:20px;
-  text-align:center;
+  padding-left:15px;
+  color:black;
+  border:2px solid;
+  width:500px;
 }
 
+.post-description{
+  font-size:16px;
+}
+
+
 .post-date {
-  background-color:white;
+  text-align:right;
+}
+
+.post-contents {
+  display:inline-blocm;
+}
+
+
+/*コメント入力ページ*/
+
+.agenda {
+  list-style:none;
+  float:right;
+  border:2px solid;
+  border-radius:5px;
+  width:500px;
+  margin-bottom:10px;
+}
+
+
+.comment-list {
+  border:3px solid;
+  border-radius:10px;
+  margin-bottom:30px;
+  height:250px;
+  padding: 5px 5px;
 }

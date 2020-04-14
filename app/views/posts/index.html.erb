@@ -1,23 +1,23 @@
 <%= render "leftcontents" %>
 
-<div class = "community-container">
-  <div class = "right-contents">
-    <div class = "post-all">
+<div class = "topic-container">
+  <div class = "right-content">
+    <p>トピック一覧</p>
       <% @team.posts. each do |post| %>
-        <div class = "post-index">
-          <p class = "post-date">
-            <%= post.created_at.strftime('%Y年 %m月 %d日 %H時 %M分') %>
-          <p>
+      <div class = "post-list">
+        <%= link_to new_comment_path(post_id: post.id, team_id: @team.id), class: "post-index" do %>
+            <%= post.title %>
+          </p>
           <div class = "post-contents">
-            <p class = "post-titile">
-              <%= post.title %>
-            </p>
-            <p class = "post-description">
+            <div class = "post-description">
               <%= post.description %>
-            </p>
+            </div>
+            <p class = "post-date">
+              <%= post.created_at.strftime('%Y年 %m月 %d日 %H時 %M分') %>
+            <p>
           </div>
+        <% end %>
         </div>
       <% end %>
-    </div>
   </div>
 </div>

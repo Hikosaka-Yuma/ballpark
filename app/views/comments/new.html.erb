@@ -1,0 +1,39 @@
+<%= render "leftcontents" %>
+
+<div class = "agenda">
+  <h3><%= @post.title %></h3>
+  <h4><%= @post.description %></h4>
+  <h6><%= @post.created_at.strftime('%Y年 %m月 %d日 %H時 %M分') %></h6>
+</div>
+
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-4 col-md-offset-4">
+      <div class = "comment-create">
+        <%= form_with model: @comment do |form| %>
+        <%= form.hidden_field :post_id, value: params[:post_id]%>
+        <%= form.hidden_field :team_id, value: params[:team_id]%>
+        <div class="form-group">
+          <%= form.label :description, "Comment" %>
+          <%= form.text_area :description, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.submit "このトピックに書き込む", class: "btn-block btn-white" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-4 col-md-offset-6">
+      <% @post.comments.each do |comment| %>
+        <div class = "comment-list">
+          <%= comment.description %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

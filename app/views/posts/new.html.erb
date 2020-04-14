@@ -3,7 +3,7 @@
 
 <div class = "conttainer">
  <div class = "row">
-  <div class = "col-md-offset-3 md-4">
+  <div class = "col-md-offset-1 col-md-4">
    <div class = "post-create">
     <%= form_with model: @post do |form| %>
     <%= form.hidden_field :team_id, value: params[:team_id]%>
@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
      <%= form.label :description, "内容" %>
-     <%= form.text_area :description, class: "form-control" %>
+     <%= form.text_area :description, class: "form-control"%>
     </div>
     <div class="form-group">
      <%= form.submit "トピック追加", class: "btn-block btn-white" %>
@@ -23,3 +23,4 @@
   </div>
  </div>
 </div>
+

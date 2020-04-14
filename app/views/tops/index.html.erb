@@ -48,10 +48,11 @@
  <div class = "row">
   <h2 class = "community">コミュニティ一覧</h2>
    <div class = "team-logo">
+    <div class = "team-name"></div>
    <% @teams.each do |team| %>
    <div class = "logo col-md-2">
-    <%= team.name %>
-    <%= image_tag team.image.url %>
+    <p><%= team.name %></p>
+    <p><%= image_tag team.image.url %></p>
     <%= link_to "コミュニティを見る", team_path(id: team.id),  class: "btn team" %>
     </div> 
     <% end %>
