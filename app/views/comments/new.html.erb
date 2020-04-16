@@ -32,6 +32,17 @@
       <% @post.comments.each do |comment| %>
         <div class = "comment-list">
           <%= comment.description %>
+          <% if !comment.favorite_users.include?(current_user) %>
+            <%= link_to favorites_path(comment_id: comment.id, post_id: @post.id, team_id: @team.id), method: :post do %>
+              <i class="far fa-thumbs-up"></i>
+              <%= comment.favorites.count %>
+             <% end %>
+          <% else %>
+            <%= link_to favorites_path(comment_id: comment.id, post_id: @post.id, team_id: @team.id), method: :delete do %>
+              <i class="fas fa-thumbs-up"></i>
+              <%= comment.favorites.count %>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </div>

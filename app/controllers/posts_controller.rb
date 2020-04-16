@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.includes(:favorite_users).order(created_at: :desc)
     @team = Team.find(params[:team_id])
   end
   
