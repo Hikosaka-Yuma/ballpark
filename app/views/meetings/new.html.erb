@@ -1,0 +1,26 @@
+<%= form_with model: @meeting do |form| %>
+  <table border = "1">
+    <tr>
+      <th>開催日持</th><td><%=form.datetime_field :datetime %></td>
+    </tr>
+    <tr>
+      <th>募集締め切り</th><td><%= form.datetime_field :deadline %></td>
+    </tr>
+    <tr>
+      <th>最大参加募集人数</th><td><%= form.number_field :member %></td>
+    </tr>
+    <tr>
+      <th>都道府県</th><td><%= form.text_field :prefecture %></td>
+    </tr>
+    <tr>
+      <th>集合場所</th><td><%= form.text_field :place %></td>
+    </tr>
+    <tr>
+      <th>タイトル</th><td><%= form.text_field :title %></td>
+    </tr>
+    <tr>
+      <th>メッセージ</th><td><%= form.text_area :message %></td>
+     </tr>
+  </table>
+  <%= form.submit "この内容でオフ会募集作成", class: "btn-blue" %>
+<% end %>

@@ -276,3 +276,47 @@ body {
   height:250px;
   padding: 5px 5px;
 }
+
+
+/*meeting作成フォーム蘭*/
+
+table {
+  width: 40%;
+  height: 50rem;
+  border:2px solid black;
+ 
+}
+
+th{
+  background-color: #c0c0c0;
+}
+
+td {
+  width:50%;
+}
+
+/*ナビゲーションバー*/
+.navbar {
+  margin-bottom: 0px;
+  background-color:black;
+  height:70px;
+ 
+}
+
+  
+.header-title {
+  font-size:30px;
+  font-family: 'Amatic SC', cursive;
+  color:white;
+  text-align:center;
+  
+}
+  
+.meeting {
+  color:gray;
+}
+
+.watching {
+  color:gray;
+ 
+}

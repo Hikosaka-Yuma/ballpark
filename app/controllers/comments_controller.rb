@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   
   def index
     @post = Post.find(params[:id])
-    @comment = Comment.all.order(created_at: :desc)
+    @comment = Comment.all.includes(:favorite_users).order(created_at: :desc)
    
   end
   
@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
   
   def create
     @comment = current_user.comments.new(comment_params)
+    
     if @comment.save
        redirect_to new_comment_path(team_id: params[:comment][:team_id], post_id: params[:comment][:post_id]), success: "投稿に成功しました"
     else

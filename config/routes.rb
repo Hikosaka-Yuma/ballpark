@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'watchings/new'
+  get 'meetings/new'
   get 'sessions/new'
   get 'users/new'
   root 'tops#index'
@@ -16,5 +18,6 @@ Rails.application.routes.draw do
   resources :teams
   resources :posts
   resources :comments
-  #resources :favorites, only:[:create, :destroy]
+  resources :meetings
+  resources :watchings
 end

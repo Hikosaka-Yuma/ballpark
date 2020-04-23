@@ -16,4 +16,8 @@ class User < ApplicationRecord
    has_many :comments
    has_many :favorites
    has_many :favorite_comments, through: :favorites, source: 'post'
+   has_many :meetings
+   has_many :watchings
+   has_many :meet_paticipates
+   has_many :watching_paticipates
 end
