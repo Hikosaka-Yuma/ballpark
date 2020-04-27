@@ -1,0 +1,18 @@
+<div class = "container">
+  <div class = "row">
+    <p>観戦イベント一覧</p>
+    <% @watchings.each do |watching|%>
+    <div class = "col-md-3">
+      <div class = "meeting-list">
+        <td>球場<br><%= watching.ballpark %></td><br>
+        <td>観戦試合<br><%= watching.game %></td><br>
+        <td>締め切り<br><%= watching.dead_line.strftime('%Y年 %m月 %d日 %H時 %M分') %></td><br>
+        <td>最大人数<br><%= watching.member %></td><br>
+        <td>タイトル<br><%= watching.title %></td><br>
+        <td>メッセージ<br><%= watching.message %></td><br>
+        <%= link_to "詳しく見る", watching_path(id: watching.id) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

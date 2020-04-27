@@ -1,7 +1,12 @@
 class MeetingsController < ApplicationController
   
   def index
-    @meetings = Meetings.Find(params[:id])
+    @meetings = Meeting.all.order(created_at: :desc)
+   
+  end
+  
+  def show
+    @meeting = Meeting.find(params[:id])
   end
   
   def new
@@ -12,7 +17,7 @@ class MeetingsController < ApplicationController
     @meeting = current_user.meetings.new(meeting_params)
     
     if @meeting.save
-      redirect_to new_meeting_path, success: "投稿に成功しました"
+      redirect_to meetings_path, success: "投稿に成功しました"
     else
       flash.now[:danger] = "投稿エラー"
       render :newzs

@@ -10,24 +10,19 @@
   </head>
 
   <body>
-     <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
-    <% end %>
-    <p class="notice"><%= notice %></p>
-    
-    <nav class = "navbar">
+    <nav class = "navbar nabvar-defalut">
       <div class = "container">
         <%= link_to root_path do %>
           <span class ="header-title">Ballpark.com</span>
         <% end %>
         <ul class = "nav navbar-nav navbar-right">
-          <li>
+          <li class = "meet-menu">
             <% if logged_in? %>
               <%= link_to new_meeting_path do %>
               <span class = "meeting">オフ会作成</span>
             <% end %>
           </li>
-          <li>
+          <li class = "watchi-menu">
             <%= link_to new_watching_path do %>
             <span class = "watching">観戦イベント作成</span>
             <% end %>
@@ -37,8 +32,11 @@
         </ul>
       </div>
     </nav>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+    <p class="notice"><%= notice %></p>
     <%= yield %>
-
 <script>
   $(function(){
     $(".alert").fadeOut(5000);

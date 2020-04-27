@@ -1,10 +1,15 @@
 class WatchingsController < ApplicationController
   
   def index
-    @watchings = Watching.all
+    @watchings = Watching.all.order(created_at: :desc)
   end
+  
   def new
     @watching = Watching.new
+  end
+  
+  def show
+    @watching = Watching.find(params[:id])
   end
   
   def create

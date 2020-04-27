@@ -1,0 +1,20 @@
+<div class = "container">
+  <div class = "row">
+    <p>オフ会一覧</p>
+    <% @meetings.each do |meeting|%>
+      <div class = "col-md-3">
+        <div class = "meeting-list">
+          <td>開催日持<br><%= meeting.datetime.strftime('%Y年 %m月 %d日 %H時 %M分') %></td><br>
+           <td>都道府県<br><%= meeting.prefecture %></td><br>
+           <td>場所<br><%= meeting.place %></td><br>
+           <td>締め切り<br><%= meeting.deadline.strftime('%Y年 %m月 %d日 %H時 %M分') %></td><br>
+           <td>最大人数<br><%= meeting.member %></td><br>
+           <td>タイトル<br><%= meeting.title %></td><br>
+           <td>メッセージ<br><%= meeting.message %></td><br>
+           <%= link_to "詳しく見る", meeting_path(id: meeting.id) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

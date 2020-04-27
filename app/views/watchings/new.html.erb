@@ -1,23 +1,28 @@
 <%= form_with model: @watching do |form| %>
-  <table border = "1">
-    <tr>
-      <th>観戦する球場</th><td><%= form.text_field :ballpark %></td>
-    </tr>
-    <tr>
-      <th>観戦する試合</th><td><%= form.text_field :game %></td>
-    </tr>
-    <tr>
-      <th>募集締め切り</th><td><%= form.datetime_field :dead_line %></td>
-    </tr>
-    <tr>
-      <th>参加募集最大人数</th><td><%= form.number_field :member %></td>
-    </tr>
-    <tr>
-      <th>タイトル</th><td><%= form.text_field :title %></td>
-    </tr>
-    <tr>
-      <th>メッセージ</th><td><%= form.text_area :message %></td>
-    </tr>
-  </table>
-  <%= form.submit "この内容で観戦イベント作成", class: "btn-blue" %>
+  <div class = "form" >
+    <div class = "input-form" >
+      <h5>観戦イベント作成フォーム<h5>
+      <table border = "1">
+        <tr>
+          <th>観戦する球場</th><td><%= form.text_field :ballpark %></td>
+        </tr>
+        <tr>
+          <th>観戦する試合</th><td><%= form.text_field :game %></td>
+        </tr>
+        <tr>
+          <th>募集締め切り</th><td><%= form.datetime_field :dead_line %></td>
+        </tr>
+        <tr>
+          <th>参加募集最大人数</th><td><%= form.number_field :member %></td>
+        </tr>
+        <tr>
+          <th>タイトル</th><td><%= form.text_field :title %></td>
+        </tr>
+        <tr>
+          <th>メッセージ</th><td><%= form.text_area :message %></td>
+        </tr>
+      </table>
+     <%= form.submit "この内容で観戦イベント作成", class: "btn-blue" %>
+    </div>
+  </div>
 <% end %>
