@@ -12,4 +12,20 @@
       </div>
     </div>
   </div>
+  
+  <div class = "row">
+    <div class = "col-md-3 col-md-offset-4">
+      <div class = "meet-submit">
+        <% unless @meeting.meet_paticipates_users.include?(current_user)%>
+          <%= form_with model: @meet_paticipate, url: meet_paticipates_path do |form| %>
+          <%= form.hidden_field :meeting_id, value: params[:id] %>
+          <%= form.submit "申請する", class: "btn-block btn-white" %>
+          <% end %>
+        <% else %>
+          <p>参加申請中です。承認されるまでお待ち下さい</p>
+        <% end %>
+      </div>
+      </div>
+    </div>
 </div>
+

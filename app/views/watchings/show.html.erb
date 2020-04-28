@@ -11,4 +11,19 @@
         </div>
       </div>
   </div>
+  
+  <div class = "row">
+    <div class = "col-md-3 col-md-offset-4">
+      <div class = "watch-submit">
+        <% unless @watching.watch_paticipates_users.include?(current_user) %>
+          <%= form_with model: @watch_paticipate, url: watch_paticipates_path do |form| %>
+          <%= form.hidden_field :watching_id, value: params[:id] %>
+          <%= form.submit "申請する", class: "btn-block btn-white" %>
+          <% end %>
+        <% else %>
+          <p>参加申請中です。しばらくお待ち下さい</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

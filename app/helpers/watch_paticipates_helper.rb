@@ -1,0 +1,2 @@
+module WatchPaticipatesHelper
+end

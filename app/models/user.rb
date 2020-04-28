@@ -19,5 +19,5 @@ class User < ApplicationRecord
    has_many :meetings
    has_many :watchings
    has_many :meet_paticipates
-   has_many :watching_paticipates
+   has_many :watch_paticipates
 end

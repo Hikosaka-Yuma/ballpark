@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'watch_paticipates/new'
   get 'watchings/new'
   get 'meetings/new'
   get 'sessions/new'
@@ -20,4 +21,6 @@ Rails.application.routes.draw do
   resources :comments
   resources :meetings
   resources :watchings
+  resources :meet_paticipates
+  resources :watch_paticipates
 end
