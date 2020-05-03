@@ -7,7 +7,10 @@ class MeetingsController < ApplicationController
   
   def show
     @meeting = Meeting.find(params[:id])
+    @user = @meeting.user
+    @meet_paticipate = @meeting.meet_paticipates
   end
+  
   
   def new
     @meeting = Meeting.new
@@ -15,7 +18,6 @@ class MeetingsController < ApplicationController
 
   def create
     @meeting = current_user.meetings.new(meeting_params)
-    
     if @meeting.save
       redirect_to meetings_path, success: "投稿に成功しました"
     else

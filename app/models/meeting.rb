@@ -8,6 +8,7 @@ class Meeting < ApplicationRecord
    validates :place, presence: true
    validates :prefecture, presence: true
    
+   belongs_to :user
    has_many :meet_paticipates
    has_many :meet_paticipates_users, through: :meet_paticipates, source: 'user'
 end

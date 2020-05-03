@@ -1,14 +1,38 @@
 <div class = "container">
   <div class = "row">
-    <div class = "col-md-7 col-md-offset-2">
+    <div class = "col-md-2">
+      <div class = "user-planner">
+      <p>企画ユーザー情報</p>
+      <%= @user.name %>
+      </div>
+    </div>
+    <div class = "col-md-5 col-md-offset-1">
       <div class = "meet-desc">
-        <td>日持<br><%= @meeting.datetime %></td><br>
+        <td>日持<br><%= @meeting.datetime.strftime('%Y年 %m月 %d日 %H時 %M分') %></td><br>
         <td>都道府県<br><%= @meeting.prefecture %></td><br>
         <td>場所<br><%= @meeting.place %></td><br>
-        <td>締め切り<br><%=@meeting.deadline %></td><br>
+        <td>締め切り<br><%=@meeting.deadline.strftime('%Y年 %m月 %d日 %H時 %M分') %></td><br>
         <td>最大人数<br><%= @meeting.member %></td><br>
         <td>タイトル<br><%= @meeting.title %></td><br>
         <td>メッセージ<br><%= @meeting.message %></td><br>
+      </div>
+    </div>
+    <div class = "col-md-4">
+      <div class = "application-member">
+        <% @meet_paticipate.each do |meet_paticipate| %>
+          <% if meet_paticipate.allowed %>
+            <p>参加ユーザー一覧</p>
+            <%= meet_paticipate.user.name %>
+          <% else %>
+            <p>申請中ユーザー一覧</p>
+            <%= meet_paticipate.user.name %>
+          　<% if current_user.id == @meeting.user_id %>
+              <%= link_to meet_paticipate_path(id: meet_paticipate.id), method: :patch do %>
+                <div class="btn btn-primary">承認</div>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -18,8 +42,8 @@
       <div class = "meet-submit">
         <% unless @meeting.meet_paticipates_users.include?(current_user)%>
           <%= form_with model: @meet_paticipate, url: meet_paticipates_path do |form| %>
-          <%= form.hidden_field :meeting_id, value: params[:id] %>
-          <%= form.submit "申請する", class: "btn-block btn-white" %>
+            <%= form.hidden_field :meeting_id, value: params[:id] %>
+            <%= form.submit "申請する", class: "btn-block btn-white" %>
           <% end %>
         <% else %>
           <p>参加申請中です。承認されるまでお待ち下さい</p>

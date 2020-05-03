@@ -7,6 +7,8 @@ class Watching < ApplicationRecord
   validates :member, presence: true
   validates :title, presence: true
   validates :message, presence: true
+  
+   belongs_to :user
   has_many :watch_paticipates
   has_many :watch_paticipates_users, through: :watch_paticipates, source: 'user'
 end

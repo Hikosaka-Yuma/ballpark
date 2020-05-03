@@ -1,16 +1,40 @@
 <div class = "container">
   <div class = "row">
-    <div class = "col-md-7 col-md-offset-2">
+    <div class = "col-md-2">
+      <div class = "user-planner">
+      <p>企画ユーザー情報</p>
+      <%= @user.name %>
+      </div>
+    </div>
+    <div class = "col-md-5 col-md-offset-1">
       <div class = "watch-desc">
         <td>球場<br><%= @watching.ballpark %></td><br>
          <td>観戦試合<br><%= @watching.game %></td><br>
-         <td>締め切り<br><%= @watching.dead_line %></td><br>
+         <td>締め切り<br><%= @watching.dead_line.strftime('%Y年 %m月 %d日 %H時 %M分') %></td><br>
          <td>最大人数<br><%= @watching.member %></td><br>
          <td>タイトル<br><%= @watching.title %></td><br>
          <td>メッセージ<br><%= @watching.message %></td><br>
         </div>
       </div>
-  </div>
+      <div class = "col-md-4">
+        <div class = "application-member">
+          <% @watch_paticipate.each do |watch_paticipate| %>
+            <% if watch_paticipate.allowed %>
+              <p>参加ユーザー一覧</p>
+              <%= watch_paticipate.user.name %>
+            <% else %>
+              <p>申請中ユーザー一覧</p>
+              <%= watch_paticipate.user.name %>
+              <% if current_user.id == @watching.user_id %>
+                <%= link_to watch_paticipate_path(id: watch_paticipate.id), method: :patch do %>
+                  <div class = "btn btn-primary">承認</div>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+   </div>
   
   <div class = "row">
     <div class = "col-md-3 col-md-offset-4">
@@ -21,7 +45,7 @@
           <%= form.submit "申請する", class: "btn-block btn-white" %>
           <% end %>
         <% else %>
-          <p>参加申請中です。しばらくお待ち下さい</p>
+          <p>参加申請中です。承認されるまでお待ち下さい</p>
         <% end %>
       </div>
     </div>
