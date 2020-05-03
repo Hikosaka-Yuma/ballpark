@@ -3,15 +3,15 @@
   <h1>Ballpark.com</h1>
   <p>野球観戦仲間を見つけよう！<br>Ballpark.comは、同じチームのファンを探して一緒に野球観戦出来るマッチングサービスです。<br>新しい野球ファンと繋がろう！<p>
    <div class = "register">
-    <%# unless logged_in? %>
+    <% unless logged_in? %>
      <a href = "/signup" class="btn signup">メールアドレスで登録</a>
      <p>or sign up with</p>
       <a href="#" class="btn facebook">Facebookで登録</a>
       <a href="#" class="btn twitter">Twitterで登録</a>
       <%= link_to 'ログインはこちら', login_path, class: 'btn btn-block btn-white' %>
-      <%# else %>
-       <!--<%= link_to "ログアウトはこちら", logout_path, class: "btn btn-block btn-white"%> -->
-     <%# end %>
+      <% else %>
+       <%= link_to "ログアウトする", logout_path, method: :delete, class: "btn btn-block btn-white"%>
+     <% end %>
    </div>
  </div>
 </div>
