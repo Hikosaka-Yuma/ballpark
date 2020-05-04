@@ -18,17 +18,20 @@
       </div>
       <div class = "col-md-4">
         <div class = "application-member">
+          <p>参加ユーザー一覧</p>
           <% @watch_paticipate.each do |watch_paticipate| %>
             <% if watch_paticipate.allowed %>
-              <p>参加ユーザー一覧</p>
+              <%= watch_paticipate.user.image %>
               <%= watch_paticipate.user.name %>
             <% else %>
-              <p>申請中ユーザー一覧</p>
+            <p>申請中ユーザー一覧</p><br>
+              <%= watch_paticipate.user.image %>
               <%= watch_paticipate.user.name %>
               <% if current_user.id == @watching.user_id %>
                 <%= link_to watch_paticipate_path(id: watch_paticipate.id), method: :patch do %>
                   <div class = "btn btn-primary">承認</div>
                 <% end %>
+                
               <% end %>
             <% end %>
           <% end %>

@@ -22,9 +22,11 @@
         <% @meet_paticipate.each do |meet_paticipate| %>
           <% if meet_paticipate.allowed %>
             <p>参加ユーザー一覧</p>
+            <%= meet_paticipate.user.image %>
             <%= meet_paticipate.user.name %>
           <% else %>
             <p>申請中ユーザー一覧</p>
+            <%= meet_paticipate.user.image %>
             <%= meet_paticipate.user.name %>
           　<% if current_user.id == @meeting.user_id %>
               <%= link_to meet_paticipate_path(id: meet_paticipate.id), method: :patch do %>

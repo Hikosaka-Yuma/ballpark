@@ -27,6 +27,14 @@
             <span class = "watching">観戦イベント作成</span>
             <% end %>
           </li>
+          <li class = "mypage-menu">
+            <%= link_to user_path(id: current_user.id) do %>
+              <span class = "mypage">マイページ</span>
+              <% end %>
+          </li>
+          <li class = "logout">
+            <%= link_to "ログアウト", logout_path, method: :delete %>
+          </li>
           <% else %>
           <% end %>
         </ul>
