@@ -14,55 +14,70 @@
    </div>
  </div>
 </div>
-
-
-<div class = "container">
- <div class = "row">
-  <div class ="content col-md-offset-1 col-md-5">
-   <p class = "comment">1.プロ野球の観戦仲間を探すならBallpark.com!</p>
-   <img src = "https://s3-ap-northeast-1.amazonaws.com/cs-park/files/dawn.dsc-web.com/blog/5d158b072fd6c.jpg" class = "picture">
-   <p class = "subcomment">同じプロ野球チームのファンがいない！<br>球場に一緒に行く予定だった人が行けなくなりチケットが余った！<br>そんな時にはBallpark.comでファン仲間を探してみよう。</p>
+<div class="py-5 text-center m-2">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto col-md-12 text-center">
+        <h1 class="mb-4 text-center m-2">About Bollpark.com</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="row mb-4">
+          <div class="col-3"> <img class="img-fluid d-block mx-auto rounded w-100" width="100" alt="Card image cap" src="https://s3-ap-northeast-1.amazonaws.com/cs-park/files/dawn.dsc-web.com/blog/5d158b072fd6c.jpg"> </div>
+          <div class="col-9">
+            <h4>1.プロ野球を通じて仲間と出会える</h4>
+            <p class="mb-0">同じファンの友達がいない。そんな時にBollpark.comで新しい仲間と出会おう。</p>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-3"> <img class="img-fluid d-block mx-auto rounded w-100" width="100" alt="Card image cap" src="https://data.nttdocomo.co.jp/tabmo/assets_c/2017/12/A6_1-2-thumb-690x426-716.jpg"> </div>
+           <div class="col-9">
+             <h4>3.イベントを利用しよう</h4>
+             <p class="mb-0">観戦イベントやオフ会イベントに積極的に参加してみよう</p>
+           </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="row mb-4">
+          <div class="col-3"> <img class="img-fluid d-block mx-auto rounded w-100" width="100" alt="Card image cap" src="https://sophia-cs.co.jp/wp-content/uploads/2020/01/1001-04-img01.png"> </div>
+          <div class="col-9">
+            <h4>2.SNSで簡単登録</h4>
+            <p class="mb-0">好きな球団など簡単なプロフィール入力だけでOK</p>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-3"> <img class="img-fluid d-block mx-auto rounded" width="100" alt="Card image cap" src="https://d1f5hsy4d47upe.cloudfront.net/0c/0c9af0620e006a1669ebbeaf6ef1b92c_t.jpeg"> </div>
+          <div class="col-9">
+            <h4>4.新しい仲間たちと出会おう</h4>
+            <p class="mb-0">球団の垣根を超えて色んな仲間達と繋がろう！</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-   <div class = "content col-md-offset-1 col-md-5">
-    <p class = "comment">2.Twitter or Facebookで簡単登録！</p>
-    <img src ="https://sophia-cs.co.jp/wp-content/uploads/2020/01/1001-04-img01.png" class = "picture">
-    <p class = "subcomment">どこのチームのファンかなど簡単なプロフィールを入力し3分程度で登録</p>
-   </div>
-  </div>
- <div class = "row">
-   <div class = "content col-md-offset-1 col-md-5">
-    <p class = "comment">3.イベントや各球団のファンから観戦仲間を探そう</p>
-    <img src = "https://i.gzn.jp/img/2016/06/03/find-your-phone/00_m.png" class = "picture">
-    <p class = "subcomment">プロフィールやタグをみて一緒に応援できそうと思ったら<br>観戦仲間の申請を出してみましょう。</p>
-   </div>
-   <div class = "content col-md-offset-1 col-md-5">
-    <p class = "comment">4.承認されたら野球場へGO!</p>
-    <img src = "https://assets.media-platform.com/lifehacker/dist/images/2018/10/02/%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0-w960.jpg" class = "picture">
-    <p class = "subcomment">プロ野球を通じて新しい仲間と繋がろう！</p>
-   </div>
- </div>
 </div>
- 
-<div class = "container">
- <div class = "row">
-  <h2 class = "community">コミュニティ一覧</h2>
-   <div class = "team-logo">
-    <div class = "team-name"></div>
-   <% @teams.each do |team| %>
-   <div class = "logo col-md-2">
-    <p><%= team.name %></p>
-    <p><%= image_tag team.image.url %></p>
-    <%= link_to "コミュニティを見る", team_path(id: team.id),  class: "btn team" %>
-    </div> 
-    <% end %>
+<div class="py-5">
+  <div class="container">
+  <% if logged_in? %>
+   <h2 class = "community">コミュニティ一覧</h2>
+   <div class="row h-30 ">
+     <% @teams.each do |team| %>
+     <div class="col-md-4 text-center pb-1">
+       <h4><%= team.name %></h4>
+       <p><%= image_tag team.image.url %></p>
+       <p><%= link_to "コミュニティを見る", team_path(id: team.id),  class: "btn team" %></p>
+     </div>
+     <% end %>
+  <% else %>
+  <% end %>
+   </div>
   </div>
- </div>
- <div class = "row">
+</div>
+<div class = "row">
   <div class = "col-md-offset-5 col-md-3">
-   <div class = "private">
-    <%= link_to "プライバシーポリシー", "/privacy" %>
-   </div> 
+     <div class = "private">
+      <%= link_to "プライバシーポリシー", "/privacy" %>
+     </div> 
   </div>
- </div>
 </div>
-

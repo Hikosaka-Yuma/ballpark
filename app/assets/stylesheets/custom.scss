@@ -1,18 +1,19 @@
 body {
- 
+
 }
 
 .top-wrapper {
+  background-color:gray;
   background-image:url("bg-top.png");
   font-size:15px;
-  height:600px;
+  height:500px;
   width:100%;
   text-align:center;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom:50px;
+ 
 }
 
 .top-title {
@@ -276,6 +277,7 @@ body {
 }
 
 
+
 /*meeting作成フォーム蘭*/
 
 .input-form {
@@ -283,7 +285,7 @@ body {
 }
 
 table {
-  width: 40%;
+  width: 70%;
   height: 50rem;
   border:2px solid black;
   
@@ -298,8 +300,15 @@ td {
   width:50%;
 }
 
+.meet-create {
+  padding-top:20px;
+}
 
-/*ナビゲーションバー*/
+.watch-create {
+  padding-top:20px;
+}
+
+/*ナビゲーションバー */
 .navbar {
   margin-bottom: 0px;
   background-color:black;
@@ -375,3 +384,22 @@ td {
   height:300px;
 }
 
+
+.chat-room {
+  height:200px;
+  background-color:gray;
+  
+  h4 {
+    text-align:center;
+  }
+}
+
+.meeting-create {
+  color:white;
+  background-color:gray;
+  display:inline-block;
+  height:40px;
+  border-radius:4px;
+  padding:5px;
+  text-align:center;
+}

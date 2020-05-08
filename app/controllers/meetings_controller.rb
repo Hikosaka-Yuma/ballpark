@@ -5,9 +5,13 @@ class MeetingsController < ApplicationController
    
   end
   
+  def new
+    @watching = Watching.new
+  end
+  
   def show
     @meeting = Meeting.find(params[:id])
-    @user = @meeting.user
+    #@user = @meeting.user
     @meet_paticipate = @meeting.meet_paticipates
   end
   

@@ -3,7 +3,7 @@
     <div class = "col-md-2">
       <div class = "user-planner">
       <p>企画ユーザー情報</p>
-      <%= @user.name %>
+      <%= @meeting.user.name %>
       </div>
     </div>
     <div class = "col-md-5 col-md-offset-1">
@@ -19,15 +19,15 @@
     </div>
     <div class = "col-md-4">
       <div class = "application-member">
-        <% @meet_paticipate.each do |meet_paticipate| %>
+        <p>参加ユーザー一覧</p>
+        <% @meeting.meet_paticipates.each do |meet_paticipate| %>
           <% if meet_paticipate.allowed %>
-            <p>参加ユーザー一覧</p>
-            <%= meet_paticipate.user.image %>
-            <%= meet_paticipate.user.name %>
+            <%= image_tag meet_paticipate.user.image.to_s %>
+            <%= meet_paticipate.user.name %><br>
           <% else %>
-            <p>申請中ユーザー一覧</p>
-            <%= meet_paticipate.user.image %>
+            <%= image_tag meet_paticipate.user.image.to_s %>
             <%= meet_paticipate.user.name %>
+            <span>申請中</span>
           　<% if current_user.id == @meeting.user_id %>
               <%= link_to meet_paticipate_path(id: meet_paticipate.id), method: :patch do %>
                 <div class="btn btn-primary">承認</div>
@@ -42,16 +42,28 @@
   <div class = "row">
     <div class = "col-md-3 col-md-offset-4">
       <div class = "meet-submit">
-        <% unless @meeting.meet_paticipates_users.include?(current_user)%>
+        <% if @meeting.user.id != current_user.id && @meeting.meet_paticipates.count < @meeting.member %>
           <%= form_with model: @meet_paticipate, url: meet_paticipates_path do |form| %>
             <%= form.hidden_field :meeting_id, value: params[:id] %>
             <%= form.submit "申請する", class: "btn-block btn-white" %>
           <% end %>
-        <% else %>
-          <p>参加申請中です。承認されるまでお待ち下さい</p>
+        <% elsif @meeting.user.id != current_user.id && @meeting.meet_paticipates.count == @meeting.member %>
+          <p>現在募集を締め切っています</p>
+        <% elsif @meeting.user.id == current_user.id  %>
+          <p>申請中ユーザーを確認して承認しよう！</p>
+        <% elsif @meeting.user.id == current_user.id && @meeting.meet_paticipate.count == @meeting.member %>
+          <p>チャットで早速話してみよう</p>
         <% end %>
       </div>
-      </div>
+     </div>
+  </div>
+    
+  <div class = "row">
+    <div class = "col-md-10 col-md-offset-1">
+      <div class = "chat-room">
+        <h4>chatroom</h4>
+       </div>
     </div>
+  </div>
 </div>
 

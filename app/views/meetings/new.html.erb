@@ -1,32 +1,47 @@
-<%= form_with model: @meeting do |form| %>
-  <div class = "form" >
-    <div class = "input-form" >
-      <h5>オフ会作成フォーム<h5>
-      <table border = "1">
-        <tr>
-          <th>開催日持</th><td><%=form.datetime_field :datetime %></td>
-        </tr>
-        <tr>
-          <th>募集締め切り</th><td><%= form.datetime_field :deadline %></td>
-        </tr>
-        <tr>
-          <th>最大参加募集人数</th><td><%= form.number_field :member %></td>
-        </tr>
-        <tr>
-          <th>都道府県</th><td><%= form.text_field :prefecture %></td>
-        </tr>
-        <tr>
-          <th>集合場所</th><td><%= form.text_field :place %></td>
-        </tr>
-        <tr>
-          <th>タイトル</th><td><%= form.text_field :title %></td>
-        </tr>
-        <tr>
-          <th>メッセージ</th><td><%= form.text_area :message %></td>
-        </tr>
-      </table>
-      <%= form.submit "この内容で観戦イベント作成", class: "btn-blue" %>
+<div class="py-5" >
+  <div class="container">
+    <div class="row w-100 h-50">
+      <div class="col-md-12">
+      <%= form_with model: @meeting do |form| %>
+        <div class = "form" >
+          <div class = "input-form" >
+          <h5>オフ会作成フォーム<h5>
+            <table border = "1">
+              <tr>
+                <th>開催日持</th><td><%=form.datetime_field :datetime %></td>
+              </tr>
+              <tr>
+                <th>募集締め切り</th><td><%= form.datetime_field :deadline %></td>
+              </tr>
+              <tr>
+                <th>最大参加募集人数</th><td><%= form.number_field :member %></td>
+              </tr>
+              <tr>
+                <th>都道府県</th><td><%= form.text_field :prefecture %></td>
+              </tr>
+              <tr>
+                <th>集合場所</th><td><%= form.text_field :place %></td>
+              </tr>
+              <tr>
+                <th>タイトル</th><td><%= form.text_field :title %></td>
+              </tr>
+              <tr>
+                <th>メッセージ</th><td><%= form.text_area :message %></td>
+              </tr>
+            </table>
+            <div class = "meet-create">
+              <%= form.submit "この内容で観戦イベント作成", class: "btn-blue" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
     </div>
   </div>
-<% end %>
+</div>
+
+
+
+
+
 

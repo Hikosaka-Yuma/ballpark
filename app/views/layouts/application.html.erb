@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <nav class = "navbar nabvar-defalut">
+      <nav class = "navbar nabvar-defalut">
       <div class = "container">
         <%= link_to root_path do %>
           <span class ="header-title">Ballpark.com</span>
@@ -18,13 +18,13 @@
         <ul class = "nav navbar-nav navbar-right">
           <li class = "meet-menu">
             <% if logged_in? %>
-              <%= link_to new_meeting_path do %>
-              <span class = "meeting">オフ会作成</span>
+              <%= link_to meetings_path do %>
+              <span class = "meeting">オフ会</span>
             <% end %>
           </li>
           <li class = "watchi-menu">
-            <%= link_to new_watching_path do %>
-            <span class = "watching">観戦イベント作成</span>
+            <%= link_to watchings_path do %>
+            <span class = "watching">観戦イベント</span>
             <% end %>
           </li>
           <li class = "mypage-menu">
