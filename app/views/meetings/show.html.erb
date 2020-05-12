@@ -2,8 +2,9 @@
   <div class = "row">
     <div class = "col-md-2">
       <div class = "user-planner">
-      <p>企画ユーザー情報</p>
-      <%= @meeting.user.name %>
+        <p>企画ユーザー</p>
+        <%= image_tag @meeting.user.image.thumb.url %><br>
+        <%= @meeting.user.name %>
       </div>
     </div>
     <div class = "col-md-5 col-md-offset-1">
@@ -22,12 +23,12 @@
         <p>参加ユーザー一覧</p>
         <% @meeting.meet_paticipates.each do |meet_paticipate| %>
           <% if meet_paticipate.allowed %>
-            <%= image_tag meet_paticipate.user.image.to_s %>
+            <%= image_tag meet_paticipate.user.image.thumb.url %>
             <%= meet_paticipate.user.name %><br>
           <% else %>
             <%= image_tag meet_paticipate.user.image.to_s %>
             <%= meet_paticipate.user.name %>
-            <span>申請中</span>
+            <p>申請中<p>
           　<% if current_user.id == @meeting.user_id %>
               <%= link_to meet_paticipate_path(id: meet_paticipate.id), method: :patch do %>
                 <div class="btn btn-primary">承認</div>

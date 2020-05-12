@@ -1,6 +1,13 @@
 <div class = "container">
   <div class = "row">
-    <p>観戦イベント一覧</p>
+    <h4>観戦イベント一覧<h4>
+    <div class = "col-md12 text-center">
+      <%= link_to new_watching_path do %>
+        <p class = "watching-create">作成する</p>
+      <% end %>
+    </div>
+  </div>
+  <div class = "row">
     <% @watchings.each do |watching|%>
     <div class = "col-md-3">
       <div class = "meeting-list">

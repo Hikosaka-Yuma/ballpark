@@ -1,6 +1,13 @@
 <div class = "container">
   <div class = "row">
-    <p>オフ会一覧</p>
+    <h4>オフ会一覧<h4>
+    <div class = "col-md12 text-center">
+      <%= link_to new_meeting_path do %>
+        <p class = "meeting-create">作成する</p>
+     <% end %>
+      </div>
+  </div>
+  <div class = "row">
     <% @meetings.each do |meeting|%>
       <div class = "col-md-3">
         <div class = "meeting-list">
@@ -15,13 +22,6 @@
         </div>
       </div>
     <% end %>
-  </div>
-  <div class = "row">
-    <div class = "col-md12 text-center">
-      <%= link_to new_meeting_path do %>
-        <p class = "meeting-create">オフ会を作成する</p>
-     <% end %>
-      </div>
   </div>
 </div>
 

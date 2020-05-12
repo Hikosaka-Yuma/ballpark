@@ -1,7 +1,9 @@
 <div class="py-5 text-center">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 w-50" style=""><%= image_tag @user.image.to_s %><br><%= @user.name %></div>
+      <div class="col-md-6 w-50">
+        <p class = "user-image"><%= image_tag @user.image.thumb.url %></p><br><%= @user.name %>
+        </div>
       <div class="col-md-6" >
         <%= @user.introduce %>
       </div>

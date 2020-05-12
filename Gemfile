@@ -72,3 +72,4 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem "carrierwave"
+gem 'mini_magick'
