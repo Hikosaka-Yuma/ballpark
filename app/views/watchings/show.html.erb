@@ -1,8 +1,9 @@
 <div class = "container">
   <div class = "row">
-    <div class = "col-md-2">
+    <div class = "col-md-2 text-center">
+      <p>企画ユーザー</p>
       <div class = "user-planner">
-      <p>企画ユーザー情報</p>
+      <%= image_tag @watching.user.image.thumb.url %><br>
       <%= @watching.user.name %>
       </div>
     </div>
@@ -16,22 +17,21 @@
          <td>メッセージ<br><%= @watching.message %></td><br>
         </div>
       </div>
-      <div class = "col-md-4">
+      <div class = "col-md-4 text-left">
+        <p class = "member-title text-center">参加ユーザー一覧</p>
         <div class = "application-member">
-          <p>参加ユーザー一覧</p>
           <% @watching.watch_paticipates.each do |watch_paticipate| %>
             <% if watch_paticipate.allowed %>
-              <%= image_tag watch_paticipate.user.image.to_s %>
-              <%= watch_paticipate.user.name %><br>
-            <% else %>
-              <%= image_tag watch_paticipate.user.image.to_s %>
+              <%= image_tag watch_paticipate.user.image.thumb.url %>
               <%= watch_paticipate.user.name %>
-              <a>申請中</a>
+            <% else %>
+              <%= image_tag watch_paticipate.user.image.thumb.url %>
+              <%= watch_paticipate.user.name %>
+              <span>申請中<span>
               <% if current_user.id == @watching.user_id %>
                 <%= link_to watch_paticipate_path(id: watch_paticipate.id), method: :patch do %>
-                  <div class = "btn btn-primary">承認</div>
+                  <span class = "btn btn-primary">承認</span><br>
                 <% end %>
-                
               <% end %>
             <% end %>
           <% end %>
@@ -44,17 +44,49 @@
       <div class = "watch-submit">
         <% if @watching.user.id != current_user.id && @watching.watch_paticipates.count < @watching.member %>
           <%= form_with model: @watch_paticipate, url: watch_paticipates_path do |form| %>
-          <%= form.hidden_field :watching_id, value: params[:id] %>
-          <%= form.submit "申請する", class: "btn-block btn-white" %>
+            <%= form.hidden_field :watching_id, value: params[:id] %>
+            <%= form.submit "申請する", class: "btn-block btn-white" %>
           <% end %>
         <% elsif @watching.watch_paticipates.count == @watching.member %>
           <p>現在募集を締め切っています</p>
-        <% elsif @wathing.user.id == current_user.id %>
+        <% elsif @wathing.user.id == current_user.id &&  @meeting.watch_paticipates.count < @watching.member  %>
          <p>申請中ユーザーを確認して承認しよう！</p>
         <% elsif @watching.user.id == current_user.id &&  @meeting.watch_paticipates.count == @watching.member %>
           <p>チャットで早速話してみよう</p>
         <% end %>
       </div>
     </div>
+  </div>
+  
+  <div class = "row">
+    <div class = "col-md-8 col-md-offset-2 text-center">
+      <%# if @meeting.user_id == current_user.id || @meeting.meet_paticipates.id == current_user.id %>
+      <div class = "chat-room">
+        <h4><%= @watching.user.name %>のチャット部屋</h4>
+        <p>チャットで会話しよう</p>
+        <div class = "meet_message">
+          <%= form_with model: @watchingmessages, url:  watching_watchingmessages_path(@watching), local: true do |form| %>
+            <%= form.text_area :message, class: "form-control" %>
+             <%= form.submit "送信", class: "meet-button" %>
+          <% end %>
+        </div>
+       </div>
+    </div>
+  </div>
+  
+  <div class = "row">
+    <div class = "col-md-6 col-md-offset-2">
+      <% @watching.watchingmessages.each do |message| %>
+      <div class = "message-author">
+        <%= image_tag message.user.image.thumb.url %>
+        <%= message.user.name %>
+      </div>
+      <div class = "message-all" >
+        <%= message.message %>
+      </div>
+      <% end %>
+    </div>
+     <%# else %>
+     <%# end %>
   </div>
 </div>

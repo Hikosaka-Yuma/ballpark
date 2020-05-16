@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'meet_rooms/show'
+  get 'rooms/show'
   get 'watch_paticipates/new'
   get 'watchings/new'
   get 'meetings/new'
@@ -19,8 +21,13 @@ Rails.application.routes.draw do
   resources :teams
   resources :posts
   resources :comments
-  resources :meetings
-  resources :watchings
+  resources :meetings do 
+    resources :meetingmessages
+  end
+  resources :watchings do
+    resources :watchingmessages
+  end
   resources :meet_paticipates
   resources :watch_paticipates
+  
 end

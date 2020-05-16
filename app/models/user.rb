@@ -23,5 +23,7 @@ class User < ApplicationRecord
   has_many :watchings
   has_many :meet_paticipates
   has_many :watch_paticipates
+  has_many :meetingmessages
+  has_many :watchingmessages
    
 end

@@ -12,12 +12,13 @@ class WatchingsController < ApplicationController
     @watching = Watching.find(params[:id])
     #@user = @watching.user
     @watch_paticipate = @watching.watch_paticipates
+    @watchingmessage = @watching.watchingmessages
   end
   
   def create
     @watching = current_user.watchings.new(watching_params)
     if @watching.save
-      redirect_to watching_path, success: "投稿に成功しました"
+      redirect_to watchings_path, success: "投稿に成功しました"
     else
       flash.now[:danger] = "投稿エラー"
       render :new
