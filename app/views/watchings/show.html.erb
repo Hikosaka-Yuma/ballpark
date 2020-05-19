@@ -42,17 +42,26 @@
   <div class = "row">
     <div class = "col-md-3 col-md-offset-4">
       <div class = "watch-submit">
-        <% if @watching.user.id != current_user.id && @watching.watch_paticipates.count < @watching.member %>
+        <% @participate = false %>
+        <% @watching.watch_paticipates.each do |watch_paticipate| %>
+          <% if watch_paticipate.user_id.to_i == current_user.id %>
+            <% @participate = true %>
+          <% end %>
+        <% end %>
+        <% if @participate %>
+        <% elsif @watching.user.id != current_user.id && @watching.watch_paticipates.count < @watching.member %>
           <%= form_with model: @watch_paticipate, url: watch_paticipates_path do |form| %>
             <%= form.hidden_field :watching_id, value: params[:id] %>
             <%= form.submit "申請する", class: "btn-block btn-white" %>
           <% end %>
-        <% elsif @watching.watch_paticipates.count == @watching.member %>
+        <% elsif @watching.user.id != current_user.id && @watching.watch_paticipates.count == @watching.member %>
           <p>現在募集を締め切っています</p>
-        <% elsif @wathing.user.id == current_user.id &&  @meeting.watch_paticipates.count < @watching.member  %>
-         <p>申請中ユーザーを確認して承認しよう！</p>
-        <% elsif @watching.user.id == current_user.id &&  @meeting.watch_paticipates.count == @watching.member %>
-          <p>チャットで早速話してみよう</p>
+        <% elsif @wathing.user.id == current_user.id && @watching.watch_paticipates.count < @watching.member %>
+          <p>申請中ユーザーを確認して承認しよう！</p>
+        <% elsif @watching.user.id != current_user.id && @watching.watch_paticipates.count < @watching.member %>
+          <p>現在申請中です。承認されるまでお待ち下さい</p>
+        <% elsif @watching.user.id == current_user.id &&  @watching.watch_paticipates.count == @watching.member %>
+          <p>募集完了です。<br>チャットで話しかけてみよう</p>
         <% end %>
       </div>
     </div>
@@ -60,8 +69,8 @@
   
   <div class = "row">
     <div class = "col-md-8 col-md-offset-2 text-center">
-      <%# if @meeting.user_id == current_user.id || @meeting.meet_paticipates.id == current_user.id %>
       <div class = "chat-room">
+        <% if @watching.user.id == current_user.id || @watch_paticipates == current_user.id %>
         <h4><%= @watching.user.name %>のチャット部屋</h4>
         <p>チャットで会話しよう</p>
         <div class = "meet_message">
@@ -86,7 +95,7 @@
       </div>
       <% end %>
     </div>
-     <%# else %>
-     <%# end %>
+    <% else %>
+    <% end %>
   </div>
 </div>

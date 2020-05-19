@@ -6,15 +6,10 @@
 </div>
 
 <div class = "community-container">
- <div class = "left-content">
-  <div class = "team-info">
-   <p><%= image_tag @team.image.url %></p>
-   <%= link_to'このコミュニティに参加する' "#", class: 'join-member' %>
-   <!-- パス名作成　要 -->
+  <div class = "left-content">
+    <div class = "team-info">
+      <p><%= image_tag @team.image.url %></p>
+      <p><%= @team.name %></p>
+    </div>
   </div>
-   <div class = "member">
-    <p>参加者一覧</p>
-    <!-- 参加者一覧数を記載 -->
-    <a href="#" class="btn member">All members</a>
-   </div>
- </div>
+</div>

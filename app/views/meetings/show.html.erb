@@ -59,6 +59,8 @@
           <p>現在募集を締め切っています</p>
         <% elsif @meeting.user.id == current_user.id && @meeting.meet_paticipates.count < @meeting.member  %>
           <p>申請中ユーザーを確認して承認しよう！</p>
+        <% elsif @meeting.user.id != current_user.id && @meeting.meet_paticipates.count < @meeting.member  %> 
+          <p>現在申請中です。承認されるまでお待ち下さい</p>
         <% elsif @meeting.user.id == current_user.id && @meeting.meet_paticipates.count == @meeting.member %>
           <p>募集完了です。<br>チャットで話しかけてみよう</p>
         <% end %>
@@ -68,10 +70,10 @@
     
   <div class = "row">
     <div class = "col-md-8 col-md-offset-2 text-center">
-      <%# if @meeting.user_id == current_user.id || @meeting.meet_paticipates.id == current_user.id %>
+      <% if @meeting.user.id == current_user.id || @meet_paticipates == current_user.id %>
       <div class = "chat-room">
         <h4><%= @meeting.user.name %>の部屋</h4>
-        <p>承認されました。チャットで話しかけてみよう</p>
+        <p>チャットで話しかけてみよう</p>
         <div class = "meet_message">
           <%= form_with model: @meetingmessages, url:  meeting_meetingmessages_path(@meeting), local: true do |form| %>
             <%= form.text_area :message, class: "form-control" %>
@@ -94,7 +96,7 @@
       </div>
       <% end %>
     </div>
-     <%# else %>
-     <%# end %>
+     <% else %>
+     <% end %>
   </div>
 </div>

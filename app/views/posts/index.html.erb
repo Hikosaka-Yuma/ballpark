@@ -1,23 +1,30 @@
 <%= render "leftcontents" %>
 
 <div class = "topic-container">
+  <div class = "row">
+    <div class = "col-md-4 col-md-offset-2">
   <div class = "right-content">
-    <p>トピック一覧</p>
+    <% if @team.posts.count == 0 %>
+     <p>現在トピックはありません。トピックを作成してみよう！</p>
+    <% else %>
+      <p>トピック一覧</p>
       <% @team.posts. each do |post| %>
-      <div class = "post-list">
-        <%= link_to new_comment_path(post_id: post.id, team_id: @team.id), class: "post-index" do %>
+        <div class = "post-list">
+          <%= link_to new_comment_path(post_id: post.id, team_id: @team.id), class: "post-index" do %>
             <%= post.title %>
-          </p>
-          <div class = "post-contents">
-            <div class = "post-description">
-              <%= post.description %>
-            </div>
-            <p class = "post-date">
-              <%= post.created_at.strftime('%Y年 %m月 %d日 %H時 %M分') %>
-            </p>
+        <div class = "post-contents">
+          <div class = "post-description">
+            <%= post.description %>
           </div>
-        <% end %>
+          <p class = "post-date">
+            <%= post.created_at.strftime('%Y年 %m月 %d日 %H時 %M分') %>
+          </p>
+        </div>
+          <% end %>
         </div>
       <% end %>
+    <% end %>
   </div>
+</div>
+</div>
 </div>

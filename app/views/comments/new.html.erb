@@ -31,11 +31,11 @@
     <div class = "col-md-4 col-md-offset-6">
       <% @post.comments.each do |comment| %>
         <div class = "comment-user">
-        <%= image_tag comment.user.image.thumb.url %><br>
-        <%= comment.user.name %>
+          <%= image_tag comment.user.image.thumb.url %><br>
+          <%= comment.user.name %>
         </div>
         <div class = "comment-list">
-          <%= comment.description %>
+          <p><%= comment.description %><p>
           <% if !comment.favorite_users.include?(current_user) %>
             <%= link_to favorites_path(comment_id: comment.id, post_id: @post.id, team_id: @team.id), method: :post do %>
               <i class="far fa-thumbs-up"></i>

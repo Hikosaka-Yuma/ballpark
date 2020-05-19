@@ -5,9 +5,6 @@
    <div class = "register">
     <% unless logged_in? %>
      <a href = "/signup" class="btn signup">メールアドレスで登録</a>
-     <p>or sign up with</p>
-      <a href="#" class="btn facebook">Facebookで登録</a>
-      <a href="#" class="btn twitter">Twitterで登録</a>
       <%= link_to 'ログインはこちら', login_path, class: 'btn btn-block btn-white' %>
       <% else %>
      <% end %>
@@ -40,10 +37,10 @@
       </div>
       <div class="col-lg-6">
         <div class="row mb-4">
-          <div class="col-3"> <img class="img-fluid d-block mx-auto rounded w-100" width="100" alt="Card image cap" src="https://sophia-cs.co.jp/wp-content/uploads/2020/01/1001-04-img01.png"> </div>
+          <div class="col-3"> <img class="img-fluid d-block mx-auto rounded w-100" width="100" alt="Card image cap" src="http://minto.tech/wp-content/uploads/2016/11/1d5739bdfb4bc8194dc377a16c052be7_s1.jpg"> </div>
           <div class="col-9">
-            <h4>2.SNSで簡単登録</h4>
-            <p class="mb-0">好きな球団など簡単なプロフィール入力だけでOK</p>
+            <h4>2.球団コミュニティでトピックスを呟こう</h4>
+            <p class="mb-0">各球団コミュニティで好きな選手の紹介など自由に利用できます。</p>
           </div>
         </div>
         <div class="row mb-4">
@@ -59,7 +56,7 @@
 </div>
 <div class="py-5">
   <div class="container">
-  <% if logged_in? %>
+  <%# if logged_in? %>
    <h2 class = "community">コミュニティ一覧</h2>
    <div class="row h-30 ">
      <% @teams.each do |team| %>
@@ -69,8 +66,8 @@
        <p><%= link_to "コミュニティを見る", team_path(id: team.id),  class: "btn team" %></p>
      </div>
      <% end %>
-  <% else %>
-  <% end %>
+  <%# else %>
+  <%# end %>
    </div>
   </div>
 </div>

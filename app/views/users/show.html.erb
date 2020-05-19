@@ -4,8 +4,11 @@
       <div class="col-md-6 w-50">
         <p class = "user-image"><%= image_tag @user.image.thumb.url %></p><br><%= @user.name %>
         </div>
-      <div class="col-md-6" >
-        <%= @user.introduce %>
+      <div class="col-md-6 text-left" >
+        <p>プロフィール</p>
+        <div class = "user-introduce">
+           <%= @user.introduce %>
+        </div>
       </div>
       </div>
     </div>

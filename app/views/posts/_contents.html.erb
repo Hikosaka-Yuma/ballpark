@@ -6,28 +6,29 @@
  </div>
 </div>
 
-<div class = "community-container">
- <div class = "left-content">
-  <div class = "team-info">
-   <p><%= image_tag @team.image.url %></p>
-   <%= link_to'このコミュニティに参加する' "#", class: 'join-member' %>
-   <!-- パス名作成　要 -->
+<div crass = "container">
+ <div class = "row">
+  <div class = "col-md-2 col-md-offset-2">
+    <div class = "community-container">
+      <div class = "left-content">
+        <div class = "team-info">
+          <p><%= image_tag @team.image.url %></p>
+          <p><%= @team.name %></p>
+        </div>
+      </div>
+    </div>
   </div>
-   <div class = "member">
-    <p>参加者一覧</p>
-    <!-- 参加者一覧数を記載 -->
-    <a href="#" class="btn member">All members</a>
-   </div>
- </div>
- 
- <div class = "right-content">
-  <p class = "comment">
-   <%= @team.name %>ファンのコミュニティです。<br>選手や監督について語り合いましょう。
-  </p>
-  <ul class = "rule">
-　　<p>■ルール</p>
-　　<li><%= @team.name %>を応援するコミュニティですので前向きなコメントをお願いします</li>
-　　<li>選手や他球団、ユーザーを避難する内容は書かない</li>
-　　<li>チケットの売買に関するコメントは書かない</li>
-　　<li>著作権違反となる画像はアップしないようにお願いします</li>
-  </ul>
+  <div class = "col-md-5 col-md-offset-2">
+    <div class = "right-content">
+      <p class = "comment">
+        <%= @team.name %>ファンのコミュニティです。<br>選手や監督について語り合いましょう。
+      </p>
+      <ul class = "rule">
+　　    <p>■ルール</p>
+　　    <li><%= @team.name %>を応援するコミュニティですので前向きなコメントをお願いします</li>
+　　    <li>選手や他球団、ユーザーを避難する内容は書かない</li>
+　　    <li>チケットの売買に関するコメントは書かない</li>
+      </ul>
+    </div>
+  </div>
+</div>
