@@ -10,7 +10,6 @@ class WatchingsController < ApplicationController
   
   def show
     @watching = Watching.find(params[:id])
-    #@user = @watching.user
     @watch_paticipate = @watching.watch_paticipates
     @watchingmessage = @watching.watchingmessages
   end

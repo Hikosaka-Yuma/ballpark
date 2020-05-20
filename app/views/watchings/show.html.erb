@@ -56,7 +56,7 @@
           <% end %>
         <% elsif @watching.user.id != current_user.id && @watching.watch_paticipates.count == @watching.member %>
           <p>現在募集を締め切っています</p>
-        <% elsif @wathing.user.id == current_user.id && @watching.watch_paticipates.count < @watching.member %>
+        <% elsif @watching.user.id == current_user.id && @watching.watch_paticipates.count < @watching.member %>
           <p>申請中ユーザーを確認して承認しよう！</p>
         <% elsif @watching.user.id != current_user.id && @watching.watch_paticipates.count < @watching.member %>
           <p>現在申請中です。承認されるまでお待ち下さい</p>
